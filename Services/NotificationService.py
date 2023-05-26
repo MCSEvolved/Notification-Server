@@ -1,11 +1,13 @@
 import firebase_admin
 from firebase_admin import credentials, auth, messaging
 
-def sendNotificationToTopic(topic:str, title:str, body:str):
+from Models.NotificationModel import Notification
+
+def sendNotificationToTopic(topic:str, notification:Notification):
     message = messaging.Message(
         notification={
-            'title':title,
-            'body':body
+            'title':notification.title,
+            'body':notification.body
         },
         topic=topic
     )

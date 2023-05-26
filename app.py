@@ -2,11 +2,18 @@ from flask import Flask
 import firebase_admin
 from firebase_admin import credentials, auth, messaging
 
-app = Flask(__name__)
+def getApp():
+    app = Flask(__name__)
+   
+    return app
+
+if __name__ == '__main__':
+    cred = credentials.Certificate("firebase-adminsdk-token.json")
+    firebase_admin.initialize_app(cred)
+    app = getApp()
+    app.run()
+
+
 
 import RegistrationController
-import TrackerController
-import MCServerStatusController
-import PersonalController
-import PowerManagementController
-import ServiceStatusController
+import NotificationController

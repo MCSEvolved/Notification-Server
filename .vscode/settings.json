@@ -1,11 +1,6 @@
 {
     "python.analysis.extraPaths": [
-        "./Registration",
-        "./Tracker",
-        "./MCServerStatus",
-        "./Personal",
-        "./PowerManagement",
-        "./ServiceStatus",
-        "./Services"
+        "./Services",
+        "./Controllers"
     ]
 }
