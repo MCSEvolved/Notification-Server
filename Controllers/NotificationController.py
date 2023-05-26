@@ -9,11 +9,15 @@ from AuthService import *
 @app.route('/api/send', methods=['POST'])
 def errorNotification():
     token = request.headers.get("Authorization")
-    if validateToken(token):
+    if validateTokenForNotification(token):
         topic:str = request.args.get("topic")
         notificationJson = request.get_json()
         notification = Notification(notificationJson['title'], notificationJson['body'])
-        return sendNotificationToTopic(topic, notification), 200
+        response = sendNotificationToTopic(topic, notification)
+        if response is False:
+            return "Topic Does Not Exist", 400
+        else:
+            return response, 200
     else:
         return 'Not Authorized', 401
     
