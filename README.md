@@ -10,7 +10,7 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- | 
-| `topic/mc-server` | For sending Minecraft Server status updates, e.g. when the server turns on/off |
+| `/topics/mc-server` | For sending Minecraft Server status updates, e.g. when the server turns on/off |
 
 </details>
 
@@ -19,8 +19,8 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- |
-| `topic/power-management/shortage` | For sending a notification when there is a power shortage in the system |
-| `topic/power-management/reactor-shut-off` | For sending a notification when the reactor turns off |
+| `/topics/power-management/shortage` | For sending a notification when there is a power shortage in the system |
+| `/topics/power-management/reactor-shut-off` | For sending a notification when the reactor turns off |
 
 </details>
 
@@ -29,10 +29,10 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- |
-| `topic/service-status/tracker` | For sending a notification when the **Tracker Service** stops unexpectedly |
-| `topic/service-status/storage` | For sending a notification when the **Storage Service** stops unexpectedly |
-| `topic/service-status/emerald-exchange` | For sending a notification when the **Emerald Exchange Service** stops unexpectedly |
-| `topic/service-status/reactor-manager` | For sending a notification when the **Reactor Manager Service** stops unexpectedly |
+| `/topics/service-status/tracker` | For sending a notification when the **Tracker Service** stops unexpectedly |
+| `/topics/service-status/storage` | For sending a notification when the **Storage Service** stops unexpectedly |
+| `/topics/service-status/emerald-exchange` | For sending a notification when the **Emerald Exchange Service** stops unexpectedly |
+| `/topics/service-status/reactor-manager` | For sending a notification when the **Reactor Manager Service** stops unexpectedly |
 
 </details>
 
@@ -41,9 +41,9 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- |
-| `topic/tracker/error` | For sending a notification when a turtle sends an error |
-| `topic/tracker/warning` | For sending a notification when a turtle sends a warning |
-| `topic/tracker/out-of-fuel` | For sending a notification when a turtle is out of fuel |
+| `/topics/tracker/error` | For sending a notification when a turtle sends an error |
+| `/topics/tracker/warning` | For sending a notification when a turtle sends a warning |
+| `/topics/tracker/out-of-fuel` | For sending a notification when a turtle is out of fuel |
 
 </details>
 
@@ -52,7 +52,7 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- |
-| `topic/user/weekly-report` | For sending the weekly server report |
+| `/topics/user/weekly-report` | For sending the weekly server report |
 
 </details>
 
@@ -66,7 +66,7 @@ These are all the current topics, they all have an explanation on when to use th
 
 | Name | Value |
 | --- | --- |
-| URL | `notifications.mcsynergy.nl/api/send` |
+| URL | `api.mcsynergy.nl/notifications/send` |
 | Method | `POST` |
 | URL Params | `topic: string` |
 | Body | ` JSON `
@@ -88,7 +88,7 @@ Request Body Example:
 </details>
 
 
-
+<!-- 
 ---
 
 ### Register Device and Subscribed Topics (For Mobile Clients Only)
@@ -98,7 +98,7 @@ Request Body Example:
 
 | Name | Value |
 | --- | --- |
-| URL | `notifications.mcsynergy.nl/api/register-device` |
+| URL | `api.mcsynergy.nl/notifications/register-device` |
 | Method | `POST` |
 | Body | ` JSON `
 | Headers | `Authorization` |
@@ -110,10 +110,10 @@ Request Body Example:
 Request Body Example:
 ``` json
 {
-    "topics":["topic/mc-server", "topic/service-status/tracker", "topic/tracker/error"],
+    "topics":["/topics/mc-server", "/topics/service-status/tracker", "/topics/tracker/error"],
     "registrationToken":"abcdefghijklmnopqrstuvwxyz1234567890"
 } 
 ```
 `registrationToken`: token of the device.
 
-</details
+</details -->

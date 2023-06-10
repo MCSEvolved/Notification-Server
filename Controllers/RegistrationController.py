@@ -1,13 +1,20 @@
-from __main__ import app
-from flask import Flask, jsonify, request
-from NotificationService import topics
-from RegistrationService import *
-from AuthService import *
+from app import app
+from flask import Flask, jsonify, request, Blueprint
+from services.NotificationService import topics
+from services.RegistrationService import *
+from services.AuthService import *
 
-@app.route('/api/register-device', methods=['POST'])
+registration_api = Blueprint('registration_api', __name__, template_folder='controllers')
+
+@app.route('/register-device', methods=['POST'])
 def registerToken():
-    subscribedTopics = request.get_json()["topics"]
-    registrationToken = request.get_json()["registrationToken"]
+    return "Endpoint has been deprecated, use Firebase SDK to subscribe instead", 404
+    requestJson = request.get_json()
+    try:
+        subscribedTopics = requestJson["topics"]
+        registrationToken = requestJson["registrationToken"]
+    except:
+        return "JSON Body Invalid", 400
     token = request.headers.get("Authorization")
 
     if validateTokenForRegistration(token) is False:
@@ -18,4 +25,4 @@ def registerToken():
             subscribeToTopic(registrationToken, topic)
         else:
             unsubscribeFromTopic(registrationToken, topic)
-    return "Successfully Registered and Subscribed to: " + subscribedTopics, 200
+    return "Successfully Registered and Subscribed", 200

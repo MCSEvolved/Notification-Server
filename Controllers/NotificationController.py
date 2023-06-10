@@ -1,23 +1,34 @@
-from __main__ import app
-from flask import Flask, jsonify, request
+from app import app
+from flask import Flask, jsonify, request, Blueprint
 import firebase_admin
 from firebase_admin import credentials, auth, messaging
-from Models.NotificationModel import *
-from NotificationService import *
-from AuthService import *
+from models.NotificationModel import *
+from services.NotificationService import *
+from services.AuthService import *
 
-@app.route('/api/send', methods=['POST'])
+
+notification_api = Blueprint('notification_api', __name__, template_folder='controllers')
+
+@app.route('/send', methods=['POST'])
 def errorNotification():
     token = request.headers.get("Authorization")
     if validateTokenForNotification(token):
-        topic:str = request.args.get("topic")
+        try:
+            topic:str = request.args.get("topic")
+        except:
+            return "Missing Argument: topic", 400
+        
         notificationJson = request.get_json()
-        notification = Notification(notificationJson['title'], notificationJson['body'])
+        try:
+            notification = NotificationModel(notificationJson['title'], notificationJson['body'])
+        except:
+            return "JSON Body Invalid", 400
+        
         response = sendNotificationToTopic(topic, notification)
         if response is False:
             return "Topic Does Not Exist", 400
         else:
-            return response, 200
+            return "Successfully Send Notifications to " + topic, 200
     else:
         return 'Not Authorized', 401
     
