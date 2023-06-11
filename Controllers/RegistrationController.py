@@ -16,9 +16,9 @@ def registerToken():
     except:
         return "JSON Body Invalid", 400
     token = request.headers.get("Authorization")
-
-    if validateTokenForRegistration(token) is False:
-        return "Not Authorized", 401
+    authorized, error = validateTokenForRegistration(token)
+    if authorized is False:
+        return error, 401
     
     for topic in topics:
         if topic in subscribedTopics:

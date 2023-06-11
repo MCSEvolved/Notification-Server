@@ -12,7 +12,8 @@ notification_api = Blueprint('notification_api', __name__, template_folder='cont
 @app.route('/send', methods=['POST'])
 def errorNotification():
     token = request.headers.get("Authorization")
-    if validateTokenForNotification(token):
+    authorized, error = validateTokenForNotification(token)
+    if authorized:
         try:
             topic:str = request.args.get("topic")
         except:
@@ -30,5 +31,5 @@ def errorNotification():
         else:
             return "Successfully Send Notifications to " + topic, 200
     else:
-        return 'Not Authorized', 401
+        return error, 401
     
