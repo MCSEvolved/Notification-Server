@@ -10,7 +10,7 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- | 
-| `/topics/mc-server` | For sending Minecraft Server status updates, e.g. when the server turns on/off |
+| `mc-server` | For sending Minecraft Server status updates, e.g. when the server turns on/off |
 
 </details>
 
@@ -19,8 +19,8 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- |
-| `/topics/power-management/shortage` | For sending a notification when there is a power shortage in the system |
-| `/topics/power-management/reactor-shut-off` | For sending a notification when the reactor turns off |
+| `power-management_shortage` | For sending a notification when there is a power shortage in the system |
+| `power-management_reactor-shut-off` | For sending a notification when the reactor turns off |
 
 </details>
 
@@ -29,10 +29,10 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- |
-| `/topics/service-status/tracker` | For sending a notification when the **Tracker Service** stops unexpectedly |
-| `/topics/service-status/storage` | For sending a notification when the **Storage Service** stops unexpectedly |
-| `/topics/service-status/emerald-exchange` | For sending a notification when the **Emerald Exchange Service** stops unexpectedly |
-| `/topics/service-status/reactor-manager` | For sending a notification when the **Reactor Manager Service** stops unexpectedly |
+| `service-status_tracker` | For sending a notification when the **Tracker Service** stops unexpectedly |
+| `service-status_storage` | For sending a notification when the **Storage Service** stops unexpectedly |
+| `service-status_emerald-exchange` | For sending a notification when the **Emerald Exchange Service** stops unexpectedly |
+| `service-status_reactor-manager` | For sending a notification when the **Reactor Manager Service** stops unexpectedly |
 
 </details>
 
@@ -41,9 +41,9 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- |
-| `/topics/tracker/error` | For sending a notification when a turtle sends an error |
-| `/topics/tracker/warning` | For sending a notification when a turtle sends a warning |
-| `/topics/tracker/out-of-fuel` | For sending a notification when a turtle is out of fuel |
+| `tracker_error` | For sending a notification when a turtle sends an error |
+| `tracker_warning` | For sending a notification when a turtle sends a warning |
+| `tracker_out-of-fuel` | For sending a notification when a turtle is out of fuel |
 
 </details>
 
@@ -52,7 +52,7 @@ These are all the current topics, they all have an explanation on when to use th
 
 | **Topic Name** | **Description** |
 | --- | --- |
-| `/topics/user/weekly-report` | For sending the weekly server report |
+| `user_weekly-report` | For sending the weekly server report |
 
 </details>
 

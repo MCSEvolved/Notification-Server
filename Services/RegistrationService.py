@@ -1,6 +1,6 @@
 import firebase_admin
 from firebase_admin import credentials, auth, messaging
-from models.Topics import topics, topicExists
+from models.Topics import topicExists
 
 def subscribeToTopic(registrationToken:str, topic:str):
     if topicExists(topic) is False:

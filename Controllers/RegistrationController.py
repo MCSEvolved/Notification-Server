@@ -1,6 +1,5 @@
 from app import app
 from flask import Flask, jsonify, request, Blueprint
-from services.NotificationService import topics
 from services.RegistrationService import *
 from services.AuthService import *
 

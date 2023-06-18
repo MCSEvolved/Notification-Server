@@ -2,7 +2,7 @@ import firebase_admin
 from firebase_admin import credentials, auth, messaging
 
 from models.NotificationModel import NotificationModel
-from models.Topics import topics, topicExists
+from models.Topics import topicExists
 
 
 def sendNotificationToTopic(topic:str, notification:NotificationModel):

@@ -2,7 +2,7 @@ import firebase_admin
 from firebase_admin import credentials, auth, messaging
 
 def validateTokenForNotification(token:str):
-    #return True
+    #return True, ""
     try:
         decoded_token = auth.verify_id_token(token)
     except:
