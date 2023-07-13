@@ -5,7 +5,7 @@ from services.AuthService import *
 
 registration_api = Blueprint('registration_api', __name__, template_folder='controllers')
 
-@app.route('/register-device', methods=['POST'])
+@app.route('/notifications/register-device', methods=['POST'])
 def registerToken():
     return "Endpoint has been deprecated, use Firebase SDK to subscribe instead", 404
     requestJson = request.get_json()

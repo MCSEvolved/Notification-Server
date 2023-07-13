@@ -9,8 +9,8 @@ from services.AuthService import *
 
 notification_api = Blueprint('notification_api', __name__, template_folder='controllers')
 
-@app.route('/send', methods=['POST'])
-def errorNotification():
+@app.route('/notifications/send', methods=['POST'])
+def sendNotification():
     token = request.headers.get("Authorization")
     authorized, error = validateTokenForNotification(token)
     if authorized:

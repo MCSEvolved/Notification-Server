@@ -20,9 +20,8 @@ from flask import jsonify, request, Blueprint
 app = Flask(__name__)
 
 
-cred = credentials.Certificate("firebase-adminsdk-token.json")
+cred = credentials.Certificate("/firebase-cert/certificate.json")
 firebase_admin.initialize_app(cred)
-print("RUN")
 
 from controllers.RegistrationController import registration_api
 from controllers.NotificationController import notification_api

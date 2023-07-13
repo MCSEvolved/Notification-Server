@@ -13,12 +13,12 @@ def validateTokenForNotification(token:str):
         return False, "Could Not Decode Token"
     else:
         print(decoded_token)
-        if 'isService' in decoded_token and decoded_token['isService'] is True:
+        if 'role' in decoded_token and decoded_token['role'] == "isService":
             return True, ""
             
         else:
             print("Claim didnt work")
-            return False, "Not Authorized"
+            return False, "Don't have enough permissions"
 
 
 def validateTokenForRegistration(token:str):
@@ -33,11 +33,11 @@ def validateTokenForRegistration(token:str):
         return False, "Could Not Decode Token"
     else:
         print(decoded_token)
-        if 'isPlayer' in decoded_token and decoded_token['isPlayer'] is True:
+        if 'role' in decoded_token and decoded_token['role'] == "isPlayer":
             return True, ""
             
         else:
             print("Claim didnt work")
-            return False, "Not Authorized"
+            return False, "Don't have enough permissions"
 
 
